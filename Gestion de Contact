@@ -1,0 +1,81 @@
+#include<stdio.h>
+#include<string.h>
+
+
+#define TAILLE_MAX_NOM 25
+#define TAILLE_MAX_MAIL 25
+#define TAILLE_MAX_NUMERO 10
+
+typedef struct{
+    char Nom[TAILLE_MAX_NOM];
+    char Mail[TAILLE_MAX_MAIL];
+    char Numero[TAILLE_MAX_NUMERO];
+} Contact;
+
+int NombrContact = 0;
+int NombrTotal = 0;
+Contact Contacts[100];
+void AjouterunContact(){
+    
+    printf("Entrer le Nom du Contact:");
+    scanf(" %[^\n]s",&Contacts[NombrContact].Nom);
+   
+    printf("Entrer le Mail du Contact:");
+    scanf(" %[^\n]s",&Contacts[NombrContact].Mail);   
+   
+    printf("Entrer le Numero Telephone:");
+    scanf(" %[^\n]s",&Contacts[NombrContact].Numero);
+    
+    NombrContact ++;
+    
+
+
+}
+
+
+int main(){
+    int Choix;
+    printf("\t----------------Gestion Des Contactes----------------\t");
+    do{
+        printf("-------------------------------------------------------------------\n");
+        printf("Appuyer sur 1 pour Ajouter un Contact:\n");
+        printf("Appuyer sur 2 pour Modifier un Contact:\n");
+        printf("Appuyer sur 3 pour Supprimer un Contact:\n");
+        printf("Appuyer sur 4 pour Afficher tous les Contacts:\n");
+        printf("Appuyer sur 5 pour Rechercher un Contact:\n");
+        printf("Appuyer sur 6 pour Sortir du Programme:\n");
+        printf("-------------------------------------------------------------------\n");
+        printf("Veuiller entrer votre choix:");
+        
+        scanf("%d",&Choix);
+        getchar();
+
+        switch(Choix){
+            case 1:
+                  AjouterunContact();
+                  break;
+            case 2:
+                  
+            case 3:
+            case 4:
+            case 5:
+            
+            case 6:
+                  printf("Programme est ferme.");
+                  break;
+        }
+
+
+
+
+
+
+
+
+    }while (Choix != 6);
+
+
+    return 0;
+}
+
+
