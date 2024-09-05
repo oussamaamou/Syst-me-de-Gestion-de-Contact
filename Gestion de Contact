@@ -18,13 +18,13 @@ Contact Contacts[100];
 void AjouterunContact(){
     
     printf("Entrer le Nom du Contact:");
-    scanf(" %[^\n]s",&Contacts[NombrContact].Nom);
+    scanf(" %[^\n]%*c",&Contacts[NombrContact].Nom);
    
     printf("Entrer le Mail du Contact:");
-    scanf(" %[^\n]s",&Contacts[NombrContact].Mail);   
+    scanf(" %[^\n]%*c",&Contacts[NombrContact].Mail);   
    
     printf("Entrer le Numero Telephone:");
-    scanf(" %[^\n]s",&Contacts[NombrContact].Numero);
+    scanf(" %[^\n]%*c",&Contacts[NombrContact].Numero);
     
     NombrContact ++;
     
