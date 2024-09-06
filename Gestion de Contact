@@ -52,12 +52,15 @@ void ModifierUnContact(){
             printf("Le contact a ete modifie avec succes.");
             break;                
         }
-        else{
-            printf("Ce contact n'existe pas!!");
-            break; 
-        }
         
-    }
+            else
+               printf("Ce contact n'existe pas!!");
+            break;
+    }           
+             
+        
+        
+    
 
 }
 
