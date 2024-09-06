@@ -44,7 +44,7 @@ void ModifierUnContact(){
     
     for(i=0;i<NombrContact;i++){
         if(strcmp(Contacts[i].Nom,Nom)==0){
-             printf("Entrer le nouveau Mail du Contact:");
+            printf("Entrer le nouveau Mail du Contact:");
             scanf(" %[^\n]%*c",&NovMail);   
    
             printf("Entrer le nouveau Numero du Telephone:");
@@ -61,6 +61,47 @@ void ModifierUnContact(){
     }
 
 }
+
+void SupprimerUnContact(){
+    int i, j;
+    
+    char Nom[TAILLE_MAX_NOM];
+    char NovMail[TAILLE_MAX_MAIL];
+    char NovNumero[TAILLE_MAX_NUMERO]; 
+    
+    printf("Entrer le nom du contact à supprimer: ");
+    scanf("%[^\n]%*c",&Nom);
+    
+    for(i=0;i<NombrContact;i++){
+        if(strcmp(Contacts[i].Nom,Nom)==0){
+            for (int j = i; j < NombrContact - 1; j++) {
+                strcpy(Contacts[j].Nom, Contacts[j + 1].Nom);                               
+                Contacts[j] = Contacts[j + 1];
+            }
+                NombrContact--;
+                printf("Le Contact a ete supprimer avec succes.\n");
+                
+                return;
+        }
+          
+        
+     
+     }
+     if(!Nom)
+        printf("Le nom du contact est incorrect!!");
+        
+      
+
+}
+
+
+
+
+
+
+
+
+
 
 
 int main(){
@@ -88,6 +129,8 @@ int main(){
                   ModifierUnContact();
                   break;
             case 3:
+                  SupprimerUnContact();
+                  break;
             case 4:
             case 5:
             
