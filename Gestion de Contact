@@ -68,8 +68,6 @@ void SupprimerUnContact(){
     int i, j;
     
     char Nom[TAILLE_MAX_NOM];
-    char NovMail[TAILLE_MAX_MAIL];
-    char NovNumero[TAILLE_MAX_NUMERO]; 
     
     printf("Entrer le nom du contact à supprimer: ");
     scanf("%[^\n]%*c",&Nom);
@@ -106,6 +104,29 @@ void AfficherTousLesContacts(){
    
 }
 
+void RechercherUnContact(){
+    int i;
+    char Nom[TAILLE_MAX_NOM];
+    char Mail[TAILLE_MAX_MAIL];
+    char Numero[TAILLE_MAX_NUMERO];
+    int Recherche = 0;
+    printf("Entrer le nom du contact à rechercher:");
+    scanf("%[^\n]%*c",&Nom);
+    for(i=0;i<NombrContact;i++){
+        if(strcmp(Contacts[i].Nom,Nom)==0){
+            printf("Contact Trouve.\n");
+            printf("Le mail : %s\n",&Contacts[i].Mail);
+            printf("Le numero : %s\n",&Contacts[i].Numero);
+            Recherche = 1;
+            break;
+        }
+    }
+    if(!Recherche)
+    printf("Le contact est un disponible\n!!");
+    
+
+
+}
 
 
 
@@ -145,6 +166,8 @@ int main(){
                   AfficherTousLesContacts();
                   break;
             case 5:
+                  RechercherUnContact();
+                  break;
             
             case 6:
                   printf("Programme est ferme.");
@@ -152,29 +175,7 @@ int main(){
         }
 
 
-        
-    
-
-
-
-
-
-
-
-
-
-
-
     }while (Choix != 6);
-
-
-
-
-
-
-
-
-
 
 
 
