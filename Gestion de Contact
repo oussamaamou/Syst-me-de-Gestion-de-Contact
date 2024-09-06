@@ -15,20 +15,50 @@ typedef struct{
 int NombrContact = 0;
 int NombrTotal = 0;
 Contact Contacts[100];
-void AjouterunContact(){
+
+void AjouterUnContact(){
     
     printf("Entrer le Nom du Contact:");
-    scanf(" %[^\n]%*c",&Contacts[NombrContact].Nom);
+    scanf(" %[^\n]s",&Contacts[NombrContact].Nom);
    
     printf("Entrer le Mail du Contact:");
-    scanf(" %[^\n]%*c",&Contacts[NombrContact].Mail);   
+    scanf(" %[^\n]s",&Contacts[NombrContact].Mail);   
    
-    printf("Entrer le Numero Telephone:");
-    scanf(" %[^\n]%*c",&Contacts[NombrContact].Numero);
+    printf("Entrer le Numero du Telephone:");
+    scanf(" %[^\n]s",&Contacts[NombrContact].Numero);
     
     NombrContact ++;
+    printf("Le contact est ajoute avec succes.\n");
     
+}
+void ModifierUnContact(){
+    int i;
+    
+    char Nom[TAILLE_MAX_NOM];
+    char NovMail[TAILLE_MAX_MAIL];
+    char NovNumero[TAILLE_MAX_NUMERO];   
+    
+    printf("Entrer le Nom du Contact:");
+    scanf(" %[^\n]%*c",&Nom);
+    
+    
+    for(i=0;i<NombrContact;i++){
+        if(strcmp(Contacts[i].Nom,Nom)==0){
+             printf("Entrer le nouveau Mail du Contact:");
+            scanf(" %[^\n]%*c",&NovMail);   
+   
+            printf("Entrer le nouveau Numero du Telephone:");
+            scanf(" %[^\n]%*c",&NovNumero);
 
+            printf("Le contact a ete modifie avec succes.");
+            break;                
+        }
+        else{
+            printf("Ce contact n'existe pas!!");
+            break; 
+        }
+        
+    }
 
 }
 
@@ -52,10 +82,11 @@ int main(){
 
         switch(Choix){
             case 1:
-                  AjouterunContact();
+                  AjouterUnContact();
                   break;
             case 2:
-                  
+                  ModifierUnContact();
+                  break;
             case 3:
             case 4:
             case 5:
@@ -66,6 +97,13 @@ int main(){
         }
 
 
+        
+    
+
+
+
+
+
 
 
 
@@ -73,6 +111,16 @@ int main(){
 
 
     }while (Choix != 6);
+
+
+
+
+
+
+
+
+
+
 
 
     return 0;
