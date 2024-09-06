@@ -13,7 +13,6 @@ typedef struct{
 } Contact;
 
 int NombrContact = 0;
-int NombrTotal = 0;
 Contact Contacts[100];
 
 void AjouterUnContact(){
@@ -94,7 +93,15 @@ void SupprimerUnContact(){
 
 }
 
+void AfficherTousLesContacts(){
+    int i;
+    for(i=0;i<NombrContact;i++)
+    printf("--%d-- Le Nom : %s // Le Numero : %s // Le Mail : %s \n", i+1,Contacts[i].Nom,Contacts[i].Numero,Contacts[i].Mail );
 
+      
+
+   
+}
 
 
 
@@ -132,6 +139,8 @@ int main(){
                   SupprimerUnContact();
                   break;
             case 4:
+                  AfficherTousLesContacts();
+                  break;
             case 5:
             
             case 6:
